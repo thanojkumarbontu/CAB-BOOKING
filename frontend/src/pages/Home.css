@@ -1,0 +1,376 @@
+.home {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.cta-button.primary {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cta-button.primary:hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+  background-color: white;
+  color: #667eea;
+  transform: translateY(-3px);
+}
+
+.cta-button:not(.primary):not(.secondary) {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cta-button:not(.primary):not(.secondary):hover {
+  background-color: #45a049;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+}
+
+/* FINAL FIXED: Hero Image Animation - Car on Road */
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.car-animation {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  overflow: hidden; /* Clips animation boundaries */
+  border-radius: 10px; /* Optional rounded corners */
+}
+
+/* FINAL FIXED: Car sits directly on the road */
+.car {
+  font-size: 4rem;
+  position: absolute;
+  bottom: 15px; /* Car sits just above the 20px road - NO GAP */
+  left: 100%; /* Start from right side */
+  transform: none; /* Removed vertical centering for road positioning */
+  animation: drive 4s infinite linear;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FIXED: Road Animation */
+.road {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(90deg, #333 25%, transparent 25%), 
+              linear-gradient(90deg, #333 25%, transparent 25%);
+  background-size: 40px 20px;
+  background-position: 0 0, 20px 0;
+  animation: roadMove 1s infinite linear;
+}
+
+/* FINAL FIXED: Car Movement - Right to Left */
+@keyframes drive {
+  0% { 
+    left: 100%; /* Start completely off-screen right */
+  }
+  100% { 
+    left: -80px; /* End completely off-screen left */
+  }
+}
+
+/* FINAL FIXED: Road Movement - Left to Right */
+@keyframes roadMove {
+  0% { 
+    background-position: 0 0, 20px 0; 
+  }
+  100% { 
+    background-position: 40px 0, 60px 0; 
+  }
+}
+
+/* Features Section */
+.features {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 5rem 0;
+  background: white;
+}
+
+.how-it-works h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.step {
+  text-align: center;
+  padding: 2rem;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+}
+
+.step h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.step p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design - UPDATED */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  /* UPDATED: Mobile animation container */
+  .car-animation {
+    width: 200px;
+    height: 150px;
+  }
+
+  /* UPDATED: Mobile car positioning on road */
+  .car {
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    bottom: 12px; /* Adjusted for mobile road positioning */
+  }
+  
+  /* UPDATED: Mobile keyframes */
+  @keyframes drive {
+    0% { left: 100%; }
+    100% { left: -60px; } /* Adjusted for mobile car width */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .features h2,
+  .how-it-works h2,
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+
+  /* UPDATED: Extra small screen adjustments */
+  .car-animation {
+    width: 180px;
+    height: 120px;
+  }
+
+  .car {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    bottom: 10px; /* Further adjusted for very small screens */
+  }
+
+  .road {
+    height: 15px; /* Slightly smaller road on very small screens */
+  }
+  
+  @keyframes drive {
+    0% { left: 100%; }
+    100% { left: -50px; } /* Adjusted for extra small car width */
+  }
+}
+
+/* ADDITIONAL: Animation Performance Optimization */
+.car-animation * {
+  will-change: transform, left, background-position;
+}
+
+/* ADDITIONAL: Hover Effects for Animation Container */
+.car-animation:hover .car {
+  animation-duration: 2s; /* Speed up on hover */
+}
+
+.car-animation:hover .road {
+  animation-duration: 0.5s; /* Speed up road on hover */
+}

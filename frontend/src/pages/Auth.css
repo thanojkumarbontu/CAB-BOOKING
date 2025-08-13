@@ -1,0 +1,94 @@
+.auth-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+
+.auth-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* ===== Register Page Styles ===== */
+
+.register-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form input {
+  margin-bottom: 16px;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.register-form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.register-form button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: #0056b3;
+}
+
+.register-container p {
+  margin-top: 16px;
+  text-align: center;
+  color: #555;
+}
+
+.register-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}
