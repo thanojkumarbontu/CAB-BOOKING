@@ -6,6 +6,16 @@ const users = require('./db/user')
 const Car = require('./db/car')
 const mybookings = require('./db/Mybookings')
 const multer = require('multer');
+// At the top of your server.js file
+require('dotenv').config();
+
+// Now you can use environment variables
+const PORT = process.env.PORT || 8000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/rideease';
+
+console.log('Server running on port:', PORT);
+console.log('Database URI:', MONGODB_URI);
+
 
 // Set up Multer for file upload
 const storage = multer.diskStorage({
