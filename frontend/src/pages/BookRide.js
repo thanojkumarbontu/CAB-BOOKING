@@ -68,48 +68,86 @@ const BookRide = () => {
     setStep(step - 1);
   };
 
-  const handleBooking = async () => {
-    if (!bookingData.selectedCar) {
-      toast.error('Please select a car');
-      return;
+const handleBooking = async () => {
+  if (!bookingData.selectedCar) {
+    toast.error('Please select a car');
+    return;
+  }
+
+  if (!user || !user.userId) {
+    toast.error('Please login to book a ride');
+    return;
+  }
+
+  setLoading(true);
+  
+  try {
+    const bookingPayload = {
+      pickupState: bookingData.pickupState,
+      pickupCity: bookingData.pickupCity,
+      dropState: bookingData.dropState,
+      dropCity: bookingData.dropCity,
+      pickupDate: bookingData.pickupDate,
+      pickupTime: bookingData.pickupTime,
+      dropDate: bookingData.dropDate,
+      dropTime: bookingData.dropTime,
+      drivername: bookingData.selectedCar.drivername,
+      carname: bookingData.selectedCar.carname,
+      cartype: bookingData.selectedCar.cartype,
+      carno: bookingData.selectedCar.carno,
+      fare: bookingData.selectedCar.price,
+      userId: user.userId,
+      userName: user.name,
+      bookeddate: new Date().toLocaleDateString('hi-IN')  // Changed from ISO format
+    };
+
+    console.log('🔍 Booking payload being sent:', bookingPayload); // Debug log
+
+    const response = await axios.post('http://localhost:8000/bookings', bookingPayload);
+    
+    console.log('✅ Backend response:', response.data); // Debug log
+    
+    // ✅ FIXED: Check for the actual response structure
+    if (response.data && response.data.message === "Booking Created") {
+      toast.success('Booking created successfully!');
+      navigate('/ride-history');
+    } else if (response.data === "Booking Created") {
+      // Fallback for different response format
+      toast.success('Booking created successfully!');
+      navigate('/ride-history');
+    } else {
+      console.error('❌ Unexpected response format:', response.data);
+      toast.error('Booking created but response format unexpected');
+      navigate('/ride-history'); // Navigate anyway since booking likely succeeded
     }
-
-    setLoading(true);
-    try {
-      const bookingPayload = {
-        pickupState: bookingData.pickupState,
-        pickupCity: bookingData.pickupCity,
-        dropState: bookingData.dropState,
-        dropCity: bookingData.dropCity,
-        pickupDate: bookingData.pickupDate,
-        pickupTime: bookingData.pickupTime,
-        dropDate: bookingData.dropDate,
-        dropTime: bookingData.dropTime,
-        drivername: bookingData.selectedCar.drivername,
-        carname: bookingData.selectedCar.carname,
-        cartype: bookingData.selectedCar.cartype,
-        carno: bookingData.selectedCar.carno,
-        fare: bookingData.selectedCar.price,
-        userId: user.userId,
-        userName: user.name,
-        bookeddate: new Date().toISOString().split('T')[0]
-      };
-
-      const response = await axios.post('http://localhost:8000/bookings', bookingPayload);
+    
+  } catch (error) {
+    console.error('❌ Booking error:', error);
+    
+    // ✅ ENHANCED: Better error handling with specific messages
+    let errorMessage = 'Failed to create booking';
+    
+    if (error.response) {
+      console.error('Error response status:', error.response.status);
+      console.error('Error response data:', error.response.data);
       
-      if (response.data === "Booking Created") {
-        toast.success('Booking created successfully!');
-        navigate('/ride-history');
-      } else {
-        toast.error('Failed to create booking');
+      if (error.response.data && error.response.data.error) {
+        errorMessage = error.response.data.error;
+      } else if (error.response.status === 400) {
+        errorMessage = 'Invalid booking data. Please check all fields.';
+      } else if (error.response.status === 401) {
+        errorMessage = 'Please login again to book a ride.';
       }
-    } catch (error) {
-      console.error('Booking error:', error);
-      toast.error('Failed to create booking. Please try again.');
-    } finally {
-      setLoading(false);
+    } else if (error.request) {
+      errorMessage = 'Network error. Please check your connection.';
     }
-  };
+    
+    toast.error(errorMessage);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const states = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
