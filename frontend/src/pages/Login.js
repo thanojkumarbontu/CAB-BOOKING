@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 import './Login.css';
+import { FiTruck, FiClock, FiMapPin } from 'react-icons/fi';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -127,15 +128,15 @@ const Login = () => {
             <p>Fast, reliable, and comfortable transportation at your fingertips</p>
             <div className="features-list">
               <div className="feature-item">
-                <span className="feature-icon">🚗</span>
+                <span className="feature-icon"><FiTruck /></span>
                 <span>Wide selection of vehicles</span>
               </div>
               <div className="feature-item">
-                <span className="feature-icon">⏰</span>
+                <span className="feature-icon"><FiClock /></span>
                 <span>Quick booking process</span>
               </div>
               <div className="feature-item">
-                <span className="feature-icon">📍</span>
+                <span className="feature-icon"><FiMapPin /></span>
                 <span>Real-time tracking</span>
               </div>
             </div>

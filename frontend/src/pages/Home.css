@@ -4,7 +4,7 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5a9 0%, #2563eb 100%);
   color: white;
   padding: 4rem 0;
   display: flex;
@@ -20,6 +20,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  animation: fadeUp 700ms ease both;
 }
 
 .hero-content h1 {
@@ -51,17 +52,19 @@
   font-size: 1.1rem;
   transition: all 0.3s ease;
   text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .cta-button.primary {
-  background-color: #4CAF50;
+  background-color: #10b981;
   color: white;
 }
 
 .cta-button.primary:hover {
-  background-color: #45a049;
+  background-color: #059669;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  animation: glowPulse 1.5s ease-in-out infinite;
 }
 
 .cta-button.secondary {
@@ -72,19 +75,21 @@
 
 .cta-button.secondary:hover {
   background-color: white;
-  color: #667eea;
+  color: #2563eb;
   transform: translateY(-3px);
+  animation: glowPulseBlue 1.5s ease-in-out infinite;
 }
 
 .cta-button:not(.primary):not(.secondary) {
-  background-color: #4CAF50;
+  background-color: #10b981;
   color: white;
 }
 
 .cta-button:not(.primary):not(.secondary):hover {
-  background-color: #45a049;
+  background-color: #059669;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  animation: glowPulse 1.5s ease-in-out infinite;
 }
 
 /* FINAL FIXED: Hero Image Animation - Car on Road */
@@ -109,7 +114,7 @@
   bottom: 15px; /* Car sits just above the 20px road - NO GAP */
   left: 100%; /* Start from right side */
   transform: none; /* Removed vertical centering for road positioning */
-  animation: drive 4s infinite linear;
+  animation: drive 4s infinite linear, bounceCar 2.4s ease-in-out infinite;
   width: 80px;
   height: 80px;
   display: flex;
@@ -182,12 +187,20 @@
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeUp 600ms ease both;
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
+
+.features .feature-card:nth-child(1) { animation-delay: 0.05s; }
+.features .feature-card:nth-child(2) { animation-delay: 0.15s; }
+.features .feature-card:nth-child(3) { animation-delay: 0.25s; }
+.features .feature-card:nth-child(4) { animation-delay: 0.35s; }
+.features .feature-card:nth-child(5) { animation-delay: 0.45s; }
+.features .feature-card:nth-child(6) { animation-delay: 0.55s; }
 
 .feature-icon {
   font-size: 3rem;
@@ -227,12 +240,13 @@
 .step {
   text-align: center;
   padding: 2rem;
+  animation: fadeUp 700ms ease both;
 }
 
 .step-number {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5a9 0%, #2563eb 100%);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -256,10 +270,11 @@
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
   color: white;
   padding: 4rem 0;
   text-align: center;
+  animation: fadeUp 800ms ease both;
 }
 
 .cta-section h2 {
@@ -373,4 +388,25 @@
 
 .car-animation:hover .road {
   animation-duration: 0.5s; /* Speed up road on hover */
+}
+
+/* New animations */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 10px 25px rgba(16,185,129,0.25); }
+  50% { box-shadow: 0 12px 30px rgba(16,185,129,0.45); }
+}
+
+@keyframes glowPulseBlue {
+  0%, 100% { box-shadow: 0 10px 25px rgba(37,99,235,0.25); }
+  50% { box-shadow: 0 12px 30px rgba(37,99,235,0.45); }
+}
+
+@keyframes bounceCar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }

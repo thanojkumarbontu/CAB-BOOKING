@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
   color: white;
   padding: 3rem 0 1rem 0;
   margin-top: auto;
@@ -15,13 +15,13 @@
 }
 
 .footer-section h3 {
-  color: #3498db;
+  color: #38bdf8;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
 .footer-section h4 {
-  color: #3498db;
+  color: #38bdf8;
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
@@ -50,7 +50,7 @@
 
 .footer-section ul li a:hover {
   opacity: 1;
-  color: #3498db;
+  color: #38bdf8;
 }
 
 .social-links {
@@ -69,8 +69,8 @@
 }
 
 .social-link:hover {
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color: #38bdf8;
+  border-color: #38bdf8;
   transform: translateY(-2px);
 }
 

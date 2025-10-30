@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Home.css';
+import { FiTruck, FiClock, FiMapPin, FiCreditCard, FiShield, FiStar } from 'react-icons/fi';
 
 const Home = () => {
   const { user } = useAuth();
@@ -30,7 +31,7 @@ const Home = () => {
         </div>
         <div className="hero-image">
           <div className="car-animation">
-            <div className="car">🚗</div>
+            <div className="car">🚙</div>
             <div className="road"></div>
           </div>
         </div>
@@ -42,32 +43,32 @@ const Home = () => {
           <h2>Why Choose RideEase?</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">🚗</div>
+              <div className="feature-icon"><FiTruck /></div>
               <h3>Wide Selection</h3>
               <p>Choose from various car types including economy, premium, and luxury vehicles</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">⏰</div>
+              <div className="feature-icon"><FiClock /></div>
               <h3>Quick Booking</h3>
               <p>Book your ride in seconds with our streamlined booking process</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">📍</div>
+              <div className="feature-icon"><FiMapPin /></div>
               <h3>Real-time Tracking</h3>
               <p>Track your driver's location in real-time for better convenience</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">💳</div>
+              <div className="feature-icon"><FiCreditCard /></div>
               <h3>Secure Payment</h3>
               <p>Multiple payment options with secure and encrypted transactions</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">⭐</div>
+              <div className="feature-icon"><FiStar /></div>
               <h3>Rated Drivers</h3>
               <p>All our drivers are verified and rated for your safety</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🛡️</div>
+              <div className="feature-icon"><FiShield /></div>
               <h3>24/7 Support</h3>
               <p>Round-the-clock customer support for any assistance you need</p>
             </div>

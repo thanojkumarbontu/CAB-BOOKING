@@ -7,7 +7,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/Cab-Booking')
 
 const createAdmin = async () => {
   try {
-    const adminEmail = "varanasibadhrinadh@gmail.com"; // Your email
+    const adminEmail = "thanojkumarbontu@gmail.com"; // Your email
     
     // Check if THIS specific admin already exists
     const existingAdmin = await User.findOne({ email: adminEmail });
@@ -30,9 +30,9 @@ const createAdmin = async () => {
     
     // Create new admin user
     const admin = new User({
-      name: "Badhrinadh",
-      email: "varanasibadhrinadh@gmail.com",
-      password: "123456",
+      name: "thanoj",
+      email: "thanojkumarbontu@gmail.com",
+      password: "12345678",
       role: "admin"
     });
 

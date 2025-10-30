@@ -1,6 +1,6 @@
 .login-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5a9 0%, #2563eb 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,12 +71,12 @@
 
 .form-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #2563eb;
   background-color: white;
 }
 
 .login-button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5a9 0%, #2563eb 100%);
   color: white;
   padding: 1rem;
   border: none;
@@ -90,7 +90,7 @@
 
 .login-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }
 
 .login-button:disabled {
@@ -109,7 +109,7 @@
 }
 
 .link {
-  color: #667eea;
+  color: #2563eb;
   text-decoration: none;
   font-weight: 600;
 }
@@ -130,7 +130,7 @@
 }
 
 .login-illustration {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5a9 0%, #2563eb 100%);
   color: white;
   padding: 3rem;
   display: flex;
